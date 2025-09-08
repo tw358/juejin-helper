@@ -1,0 +1,14 @@
+name: Keep Alive
+
+on:
+  schedule:
+    # 每周一早上 3 点执行一次（UTC 时间，+8 时区就是早上 11 点）
+    - cron: '0 3 * * 1'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keep the repo active
+        run: echo "✅ GitHub Actions keep-alive run at $(date)"
